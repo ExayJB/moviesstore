@@ -1,0 +1,11 @@
+{% extends 'admindashboard/base.html' %}
+{% block dashboard_content %}
+{% if template_data.top_user %}
+<div class="card mb-4">
+    <div class="card-header"><b>Top Purchaser: {{ template_data.top_user.username }}</b></div>
+    <div class="card-body">
+        <p><b>Movies Purchased:</b> {{ template_data.top_user.movies_purchased }}</p>
+    </div>
+</div>
+{% endif %}
+{% endblock dashboard_content %}
