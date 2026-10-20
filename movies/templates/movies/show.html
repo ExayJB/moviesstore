@@ -29,6 +29,27 @@
             </div>
           </form>
         </p>
+        <p>
+          Average Rating: {{ template_data.avg_rating}}/5
+        </p>
+        {% if user.is_authenticated %}
+         <form method="POST" action=
+                    "{% url 'movies.rate_movie' id=template_data.movie.id %}">
+                    {% csrf_token %}
+                    <label>Rate this movie: 1</label>
+                    <input type="range" name="rating" min="1" max="5" value="3">
+                    <label>5</label>
+                    <button type="submit"
+                        class="btn bg-dark text-white">
+                        Submit rating
+                    </button>
+        </form>
+        {% endif %}
+        {% if template_data.user_rating %}
+        <p>
+          Your rating: {{template_data.user_rating}}/5
+        </p>
+        {% endif %}
         <h2>Reviews</h2>
         <hr />
         <ul class="list-group">
