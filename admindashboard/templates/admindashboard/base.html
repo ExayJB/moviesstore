@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-3 mt-4">
+    <div class="container">
+        <h2 class="mt-3">Admin Dashboard</h2>
+        <ul class="nav nav-tabs mt-3 mb-4">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admindashboard.top_purchaser' %}">Top Purchaser</a>
+            </li>
+        </ul>
+        {% block dashboard_content %}
+        {% endblock dashboard_content %}
+    </div>
+</div>
+{% endblock content %}
